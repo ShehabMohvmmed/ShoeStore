@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="com.udacity.shoestore.DoubleConverter" />
+        <variable
+            name="shoeDetail"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <!-- used linearlayout -> easy to arrange the elements vertically and make the space between them -->
+    <LinearLayout
+        android:id="@+id/ShoeItemLayout"
+        style="@style/fragment_linear_layout"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/text_shoe_item_title"
+            android:text="Shoe Details"
+            style="@style/shoe_item_detail_style" />
+        <TextView
+            android:id="@+id/text_shoe_item_name"
+            style="@style/shoe_item_style"
+            android:text="@{shoeDetail.name}"/>
+        <TextView
+            android:id="@+id/text_shoe_item_company"
+            style="@style/shoe_item_style"
+            android:text="@{shoeDetail.company}" />
+        <TextView
+            android:id="@+id/text_shoe_item_size"
+            style="@style/shoe_item_style"
+            android:text="@{DoubleConverter.doubleToString(shoeDetail.size)}"/>
+        <TextView
+            android:id="@+id/text_shoe_item_description"
+            style="@style/shoe_item_style"
+            android:text="@{shoeDetail.description}" />
+
+    </LinearLayout>
+
+</layout>
